@@ -47,7 +47,7 @@ $ python train.py
 #### 4. Test the model
 
 ```bash
-$ python sample.py --image='png/example.png'
+$ python test.py'
 ```
 
 <br>
