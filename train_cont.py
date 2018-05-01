@@ -142,8 +142,8 @@ if use_cuda:
     encoder1 = encoder1.cuda()
     attn_decoder1 = attn_decoder1.cuda()
 
-# encoder1.load_state_dict(torch.load('encoder.pt'))
-# attn_decoder1.load_state_dict(torch.load('decoder.pt'))
+encoder1.load_state_dict(torch.load('encoder.pt'))
+attn_decoder1.load_state_dict(torch.load('decoder.pt'))
 
 def evaluate(encoder, decoder, vid_ID,max_length=MAX_LENGTH):
     input_variable, empty = variableFromId(vid_ID)
