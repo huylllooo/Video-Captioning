@@ -38,10 +38,10 @@ def BLEU_score(gt_caption, sample_caption):
     """
     reference = []
     for caption in gt_caption:
-        ref = [x for x in caption.split(' ') 
+        ref = [x for x in caption.split(' ')
                      if ('<END>' not in x and '<START>' not in x and '<UNK>' not in x)]
         reference.append(ref)
-    hypothesis = [x for x in sample_caption.split(' ') 
+    hypothesis = [x for x in sample_caption.split(' ')
                   if ('<END>' not in x and '<START>' not in x and '<UNK>' not in x)]
     print(reference)
     BLEUscore = nltk.translate.bleu_score.sentence_bleu(reference, hypothesis, weights=(1, 0, 0, 0))
@@ -93,11 +93,10 @@ def evaluate(encoder, decoder, vid_ID,max_length=MAX_LENGTH):
 
 def evaluateRandomly(encoder, decoder, n=3):
     total = 0.0
-    for i in range(850, 871):
-    # for i in range(2000, 2050):
+    for i in range(1801, 1851):
         pair = pairs[i]
         print('>', pair[0])
-        print('=', pair[1][0])
+        print('=', pair[1])
         output_words = evaluate(encoder, decoder, pair[0])
         output_sentence = ' '.join(output_words)
         print('<', output_sentence)
@@ -109,7 +108,7 @@ def evaluateRandomly(encoder, decoder, n=3):
         total += score
         print('')
     print('Avg. score is:')
-    print(total/21)
+    print(total/50)
 
 hidden_size = 2046
 encoder1 = EncoderRNN(2046, hidden_size)
